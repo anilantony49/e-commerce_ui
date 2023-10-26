@@ -52,7 +52,12 @@ class HomeScreen extends StatelessWidget {
                     mainAxisSpacing: kDefaultPadding,
                     crossAxisSpacing: kDefaultPadding,
                     childAspectRatio: 0.75),
-                itemBuilder: (context, index) => ItemCard(product: product[index], press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsScreen() )))),
+                itemBuilder: (context, index) => ItemCard(
+                    product: product[index],
+                    press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailsScreen())))),
           ))
         ],
       ),
