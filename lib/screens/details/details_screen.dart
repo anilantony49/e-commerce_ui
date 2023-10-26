@@ -1,5 +1,10 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/models/product.dart';
+import 'package:ecommerce_app/screens/details/components/add_to_cart.dart';
+import 'package:ecommerce_app/screens/details/components/color_and_details.dart';
+import 'package:ecommerce_app/screens/details/components/counter_with_favButton.dart';
+import 'package:ecommerce_app/screens/details/components/description.dart';
+import 'package:ecommerce_app/screens/details/components/product_title_with_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,7 +25,7 @@ class DetailsScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: SvgPicture.asset(
             'assets/icons/back.svg',
-            colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
           ),
         ),
         actions: [
@@ -32,7 +37,7 @@ class DetailsScreen extends StatelessWidget {
             icon: SvgPicture.asset("assets/icons/cart.svg"),
             onPressed: () {},
           ),
-          SizedBox(width: kDefaultPadding / 2)
+          const SizedBox(width: kDefaultPadding / 2)
         ],
       ),
       body: SingleChildScrollView(
@@ -58,10 +63,17 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        
+                        ColorAndSize(product: product),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        Description(product: product),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        const CounterWithFavBtn(),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        AddToCart(product: product)
                       ],
                     ),
-                  )
+                  ),
+                   ProductTitleWithImage(product: product)
                 ],
               ),
             )
